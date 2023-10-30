@@ -1,109 +1,109 @@
 /* table.module.css */
 
 * {
-    margin: 0;
-    padding: 0;
-  }
-  
-  .mainTableContainer {
-    position: relative;
-    left: 10%;
-    border: 1px solid red;
-    width: 70%;
-    height: 700px;
-  }
-  
-  .tableBox {
-    width: 100%;
-    height: 600px;
-    overflow-y: scroll;
-  }
-  
-  .my-table {
-    background: none;
-    position: relative;
-    background-color: green;
-    border-collapse: collapse;
-    width: 60%;
-    max-width: 100%;
-    height: 30px;
-  }
-  
-  .my-table th {
-    position: sticky;
-    top: 0px;
-    background-color: #101010;
-    border: 1px solid #ddd;
-    font-weight: 700;
-    border: 2px solid blue;
-    font-size: 1.2rem;
-    color: green;
-    cursor: pointer;
-  }
-  
-  .my-table th:hover {
-    background-color: yellowgreen;
-    color: #ddd;
-  }
-  
-  .my-table th, .my-table td {
-    text-align: center;
-    padding: 8px;
-    border: 1px solid #333;
-  }
-  
-  .my-table td {
-    text-align: center;
-    padding: 8px 20px;
-    border: 1px solid #333;
-    cursor: pointer;
-  }
-  
-  .my-table td:hover {
-    background-color: coral;
-  }
-  
-  .my-table td a {
-    text-decoration: none;
-    color: white;
-    font-weight: bold;
-  }
-  
-  .my-table td a,
-  .my-table td a i {
-    background: transparent;
-    color: orange;
-  }
-  
-  .my-table td,
-  .my-table td a:hover,
-  .my-table td a i:hover {
-    background: transparent;
-    color: white;
-  }
-  
-  .btn-container {
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80%;
-    display: flex;
-    overflow: scroll;
-  }
-  
-  .btn-container div {
-    cursor: pointer;
-    background-color: #272727;
-    text-align: center;
-    border-radius: 5px;
-    margin: 0 5px;
-    padding: 3px 15px 3px 15px;
-    color: white;
-  }
-  
-  .my-table table {
-    color: green !important;
-    width: 100%;
-    background: none !important;
-  }
-  
+  margin: 0;
+  padding: 0;
+}
+
+.mainTableContainer {
+  position: relative;
+  left: 10%;
+  border: 1px solid red;
+  width: 70%;
+  height: 700px;
+}
+
+.tableBox {
+  width: 100%;
+  height: 600px;
+  overflow-y: scroll;
+}
+
+.my-table {
+  background: none;
+  position: relative;
+  background-color: green;
+  border-collapse: collapse;
+  width: 60%;
+  max-width: 100%;
+  height: 30px;
+}
+
+.my-table th {
+  position: sticky;
+  top: 0px;
+  background-color: #101010;
+  border: 1px solid #ddd;
+  font-weight: 700;
+  border: 2px solid blue;
+  font-size: 1.2rem;
+  color: green;
+  cursor: pointer;
+}
+
+.my-table th:hover {
+  background-color: yellowgreen;
+  color: #ddd;
+}
+
+.my-table th,
+.my-table td {
+  text-align: center;
+  padding: 8px;
+  border: 1px solid #333;
+}
+
+.my-table td {
+  text-align: center;
+  padding: 8px 20px;
+  border: 1px solid #333;
+  cursor: pointer;
+}
+
+.my-table td:hover {
+  background-color: coral;
+}
+
+.my-table td a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+}
+
+.my-table td a,
+.my-table td a i {
+  background: transparent;
+  color: orange;
+}
+
+.my-table td,
+.my-table td a:hover,
+.my-table td a i:hover {
+  background: transparent;
+  color: white;
+}
+
+.btn-container {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  display: flex;
+  overflow: scroll;
+}
+
+.btn-container div {
+  cursor: pointer;
+  background-color: #272727;
+  text-align: center;
+  border-radius: 5px;
+  margin: 0 5px;
+  padding: 3px 15px 3px 15px;
+  color: white;
+}
+
+.my-table table {
+  color: green !important;
+  width: 100%;
+  background: none !important;
+}

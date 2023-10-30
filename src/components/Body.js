@@ -1,21 +1,20 @@
-import SideBar from "./SideBar.js";
 import { useSelector } from "react-redux";
 
+import SideBar from "./SideBar.js";
 
-const Body = ({children})=>{
-
-    const hamBurger = useSelector((state)=>state.hamBurger);
-    // console.log(hamBurger.toggleHam)
-    return (
+const Body = ({ children }) => {
+  const hamBurger = useSelector((state) => state.hamBurger);
+  // console.log(hamBurger.toggleHam)
+  return (
     <div className="body">
-        {hamBurger.toggleHam?<SideBar/>:null}
-        
-        {/* <Outlet/> */}
-        {/* SearchPage   */}
-        {children}
-        {/* <AddNewBooks/> */}
+      {hamBurger.toggleHam ? <SideBar /> : null}
 
-    </div>)
-}
+      {/* <Outlet/> */}
+      {/* SearchPage   */}
+      {children}
+      {/* <AddNewBooks/> */}
+    </div>
+  );
+};
 
 export default Body;

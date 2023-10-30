@@ -1,16 +1,8 @@
 const Card = ({ data }) => {
-  const {
-    thumbnails,
-    title,
-    author,
-    // bookId,
-    actionTypes,
-  } = data;
-  // console.log(actionTypes())
+  const { thumbnails, title, author, actionTypes } = data;
 
   return (
     <>
-    
       <div className="video-card">
         <div>
           <img src={thumbnails} alt="img_src" />
@@ -18,8 +10,7 @@ const Card = ({ data }) => {
             className="favourite"
             onClick={(e) => {
               e.preventDefault();
-              // Dispatch(addFavourites(data))
-              actionTypes();
+                            actionTypes();
             }}
           >
             <i className="bi bi-heart-fill"></i>
@@ -36,14 +27,12 @@ const Card = ({ data }) => {
             <p>Benjamin {author}</p>
           </li>
           <li>
-
             <button
               className="btn"
               onClick={(e) => {
-              e.preventDefault();
-              // Dispatch(addFavourites(data))
-              actionTypes();
-            }}
+                e.preventDefault();
+                actionTypes();
+              }}
             >
               Add
             </button>

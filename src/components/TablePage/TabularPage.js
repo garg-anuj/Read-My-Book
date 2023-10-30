@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { axiosFetchFunction } from "../../utils/helper";
 // import Pagination from "../Pagination";
 import "./table.css";
-// import style from "./table.module.css"; 
+// import style from "./table.module.css";
 import SearchBox from "../SearchBox";
 import {
   API_URL,
@@ -13,10 +13,6 @@ import {
 import { Link } from "react-router-dom";
 import useLiveSearchItems from "../../customHooks/useLiveSearchItems";
 
-
-
-
-
 const btnStyle = {
   padding: "5px 10px",
   fontSize: "13px",
@@ -26,25 +22,24 @@ const btnStyle = {
   cursor: "pointer",
   boxShadow: "0 2px 4px rgba(0, 0, 0, 0.2)",
   transition: "background-color 0.3s",
-  margin:"0 5px",
-  backgroundColor:"#272727",
+  margin: "0 5px",
+  backgroundColor: "#272727",
 };
 
-const containerStyle ={
-  backgroundColor:"transparent",
+const containerStyle = {
+  backgroundColor: "transparent",
   position: "relative",
   left: "50%",
   transform: "translateX(-55%)",
   width: "80%",
   display: "flex",
-  overflowX:"scroll",
-  height:"30px",
-  marginTop:"20px",
-  paddingTop:"2px",
-  borderTop:"1px solid #272727",
-  borderBottom:"1px solid #272727"
-}
-
+  overflowX: "scroll",
+  height: "30px",
+  marginTop: "20px",
+  paddingTop: "2px",
+  borderTop: "1px solid #272727",
+  borderBottom: "1px solid #272727",
+};
 
 const TabularPage = () => {
   useEffect(() => {
@@ -54,8 +49,7 @@ const TabularPage = () => {
   const [bookData, setBookData] = useState();
   const [gotInput, setInput] = useState("");
   // const getLiveSearchedData =
-   useLiveSearchItems(setBookData)
-
+  useLiveSearchItems(setBookData);
 
   function fetchData(URL) {
     axiosFetchFunction(URL, (apiData) => setBookData(apiData));
@@ -65,7 +59,6 @@ const TabularPage = () => {
     setInput(event.target.value);
     fetchData(SEARCH_URL + gotInput);
   }
-  
 
   function paginationButton(pageNo) {
     fetchData(PAGINATION_URL + pageNo);
@@ -75,28 +68,18 @@ const TabularPage = () => {
     fetchData(FILTRATION_URL + filterType);
   }
 
-  function sortingById(array){
-    return array.sort((a,b)=>(a.id-b.id));
+  function sortingById(array) {
+    return array.sort((a, b) => a.id - b.id);
   }
-
-
-
 
   return (
     <div className="mainTableContainer">
-
-    
-
-    <SearchBox
-          handleInputEvent={handleInputEvent}
-          filtration={filtration}
-        />
+      <SearchBox handleInputEvent={handleInputEvent} filtration={filtration} />
       <div className="tableBox">
-        
-        <table  className="my-table">
+        <table className="my-table">
           <thead>
             <tr>
-              <th onClick={()=>sortingById(bookData?.data)}>ID</th>
+              <th onClick={() => sortingById(bookData?.data)}>ID</th>
               <th>Title</th>
               <th>Author</th>
               <th>Country</th>
@@ -104,7 +87,13 @@ const TabularPage = () => {
               <th>Pages</th>
               <th>Year</th>
               <th>Link</th>
-              <th> <Link to={"/addNewBooks"}> <button style={btnStyle}>Add Button</button></Link></th>
+              <th>
+                {" "}
+                <Link to={"/addNewBooks"}>
+                  {" "}
+                  <button style={btnStyle}>Add Button</button>
+                </Link>
+              </th>
             </tr>
           </thead>
 
@@ -119,8 +108,11 @@ const TabularPage = () => {
                 <td>{book.pages}</td>
                 <td>{book.year}</td>
                 <td>{book.link}</td>
-                <td><Link to={"/addNewBooks"} state={book}>UPDATE   <i className="bi bi-pencil-square"></i></Link></td>
-                
+                <td>
+                  <Link to={"/addNewBooks"} state={book}>
+                    UPDATE <i className="bi bi-pencil-square"></i>
+                  </Link>
+                </td>
               </tr>
             ))}
           </tbody>
@@ -129,13 +121,21 @@ const TabularPage = () => {
 
       <div className="video-container">
         {/* <Pagination paginationData={Array.from({ length: bookData?.pagination?.totalPages })}  paginationButton={paginationButton} /> */}
-        
-        <div style={containerStyle}>
-            {Array.from({ length: bookData?.pagination?.totalPages}).map((ele,i)=>{
-              return (<button style={btnStyle} onClick={()=>paginationButton(i+1)} >{i+1}</button>)
-            })}
-        </div>
 
+        <div style={containerStyle}>
+          {Array.from({ length: bookData?.pagination?.totalPages }).map(
+            (ele, i) => {
+              return (
+                <button
+                  style={btnStyle}
+                  onClick={() => paginationButton(i + 1)}
+                >
+                  {i + 1}
+                </button>
+              );
+            }
+          )}
+        </div>
       </div>
     </div>
   );

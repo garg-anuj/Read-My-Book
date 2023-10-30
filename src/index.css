@@ -35,6 +35,7 @@ button {
   display: flex;
   width: 100%;
   justify-content: space-between;
+  z-index: 1;
 }
 
 .header ul {
@@ -45,7 +46,7 @@ button {
 }
 
 
-  .header ul li {
+.header ul li {
   display: flex;
   align-items: center;
   margin: 0 5px;
@@ -64,6 +65,7 @@ button {
   font-size: 1.3rem;
   font-weight: 650;
 }
+
 .header ul:nth-child(1) a i {
   font-size: 2rem;
   color: #f61c0d;
@@ -72,6 +74,7 @@ button {
 .header ul:nth-child(2) {
   width: 35%;
 }
+
 .header ul:nth-child(2) div,
 .header ul:nth-child(2) i {
   background-color: #272727;
@@ -89,9 +92,11 @@ button {
   border-radius: 50px 0 0 50px;
   cursor: pointer;
 }
+
 .header ul input {
   padding-left: 20px;
 }
+
 .header ul div {
   width: 40px;
   min-width: 40px;
@@ -105,12 +110,14 @@ button {
   justify-content: space-around;
   width: 150px;
 }
+
 .header ul:nth-child(3) li:hover {
   background-color: rgba(0, 0, 0, 0.1);
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 50%;
   cursor: pointer;
 }
+
 /* !----------------------------------------------------------------------------------------- */
 
 .body {
@@ -138,16 +145,18 @@ button {
   padding: 5px 15px;
 }
 
-.sideBar ul{
+.sideBar ul {
   padding-bottom: 10px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
-.sideBar div a{
+
+.sideBar div a {
   color: white;
   background-color: transparent;
 }
 
-.sideBar div:hover,.sideBar div a:hover,
+.sideBar div:hover,
+.sideBar div a:hover,
 .sideBar div i:hover {
   cursor: pointer;
   background: #272727;
@@ -167,16 +176,16 @@ button {
   padding: 0 25px;
 }
 
-/* !-------------------------------------------Button Container------ */
-
+/* Button Container */
 .btn-container {
   position: relative;
   left: 50%;
   transform: translateX(-50%);
   width: 80%;
   display: flex;
-  overflow:scroll;
+  overflow: scroll;
 }
+
 .btn-container div {
   cursor: pointer;
   background-color: #272727;
@@ -217,6 +226,7 @@ button {
   width: 100%;
   /* min-height: 255px; */
 }
+
 /* .video-card div{
      border: 1px solid blue;
      position: relative;
@@ -249,6 +259,7 @@ button {
   text-overflow: clip;
   text-overflow: ellipsis;
 }
+
 .video-card ul li p {
   font-size: 0.85rem;
   color: rgba(255, 255, 255, 0.7);
@@ -285,9 +296,9 @@ button {
   border-radius: 15px;
   background-color: #212121 !important;
   z-index: 9999 !important;
-
   overflow: hidden;
 }
+
 .suggestionBox_DeActive {
   display: none !important;
 }
@@ -301,6 +312,7 @@ header ul:nth-child(2) ul h1 {
   background-color: transparent;
   cursor: pointer;
 }
+
 header ul:nth-child(2) ul h1:hover {
   background-color: rgba(255, 255, 255, 0.1);
 }
@@ -310,6 +322,7 @@ header ul:nth-child(2) ul h1:hover {
   height: 2px;
   /* background-color: red; */
 }
+
 /* ::-webkit-scrollbar-thumb{
     border-radius: 20px;
     height: 2%;
@@ -321,7 +334,7 @@ header ul:nth-child(2) ul h1:hover {
 .card-container a {
   /* border: 1px solid rgba(255, 255, 255, 0.2); */
   width: 15%;
-    /* min-width: 200px; */
+  /* min-width: 200px; */
   /* padding: 10px; */
   /* border-radius: 10px 10px 0 0; */
 }
@@ -330,46 +343,48 @@ header ul:nth-child(2) ul h1:hover {
     border: 1px solid rgba(255, 255, 255, 0.2);
   } */
 
-.btn{
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    cursor: pointer;
-    padding: 10px;
-    width: 100px;
-    position: relative;
-    top:50%;
-    transform: translateY(-50%);
-    margin-right: 8px;
-}
-.btn:hover{
-    background-color: rgba(255, 255, 255, 0.1);
-    transition: 1s;
-    background-position: 100%;
-}
-.btn:not(:hover){
-    background-color: transparent;
-    transition: 1s;
+.btn {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  padding: 10px;
+  width: 100px;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-right: 8px;
 }
 
+.btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transition: 1s;
+  background-position: 100%;
+}
 
-.favourite{
-    /* border: 2px solid red; */
-    position: absolute;
-    z-index: 1 ;
-    padding: 5px;
-    top: 1rem;
-    right: 1rem;
-    background: transparent;
+.btn:not(:hover) {
+  background-color: transparent;
+  transition: 1s;
+}
+
+
+.favourite {
+  /* border: 2px solid red; */
+  position: absolute;
+  z-index: 1;
+  padding: 5px;
+  top: 1rem;
+  right: 1rem;
+  background: transparent;
 
 }
 
-.favourite i{
-    background: transparent;
-    font-size: 1.5rem;
-    color: rgba(255, 255, 255, 0.5);
+.favourite i {
+  background: transparent;
+  font-size: 1.5rem;
+  color: rgba(255, 255, 255, 0.5);
 }
 
-.favourite i:hover{
-    color: orangered;
+.favourite i:hover {
+  color: orangered;
 }
 
 
@@ -386,10 +401,11 @@ header ul:nth-child(2) ul h1:hover {
 @media (width<=770px) {
 
   .header ul:nth-child(1) a li {
-    gap:0.1rem;
+    gap: 0.1rem;
     font-size: 1rem;
     font-weight: 500;
   }
+
   .header ul:nth-child(1) a i {
     font-size: 1.8rem;
     color: orange;
@@ -460,6 +476,7 @@ header ul:nth-child(2) ul h1:hover {
 
 /* For landscape devices */
 @media only screen and (min-width: 901px) {
+
   /* .header ul {
     flex-wrap: wrap;
   } */

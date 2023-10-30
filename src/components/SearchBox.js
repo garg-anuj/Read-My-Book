@@ -1,15 +1,18 @@
-import React from 'react';
-import {btnStyle, inputStyle } from "../utils/constantFile";
-import { useDispatch } from "react-redux";
-import { setSearchedValue } from '../Redux/handleSearchEventSlice ';
+import React from "react";
+import {
+  btnStyle,
+  //  inputStyle
+} from "../utils/constantFile";
+// import { useDispatch } from "react-redux";
+// import { setSearchedValue } from '../Redux/handleSearchEventSlice ';
 // import {}
 
-const SearchBox = ({filtration}) => {
-  const dispatch = useDispatch();
-  function handleInputEvent(e){
-    dispatch(setSearchedValue(e.target.value))
-  }
-  
+const SearchBox = ({ filtration }) => {
+  // const dispatch = useDispatch();
+  // function handleInputEvent(e){
+  //   dispatch(setSearchedValue(e.target.value))
+  // }
+
   return (
     <div className="search-container">
       {/* <input
