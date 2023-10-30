@@ -46,13 +46,13 @@ const AddNewBooks = ()=>{
     return (<>
         <div className="inputBox">
             <form>
-                <input value={addNewBook?.author} name="author" placeholder="author" onChange={handleInputEvent} />
-                <input value={addNewBook?.country} name="country" placeholder="country" onChange={handleInputEvent} />
-                <input value={addNewBook?.language} name="language" placeholder="language" onChange={handleInputEvent}/>
-                <input value={addNewBook?.link} name="link" placeholder="link" onChange={handleInputEvent}/>
-                <input value={addNewBook?.pages} name="pages" placeholder="pages" onChange={handleInputEvent}/>
-                <input value={addNewBook?.title} name="title" placeholder="title" onChange={handleInputEvent}/>
-                <input value={addNewBook?.year} name="year" placeholder="year" onChange={handleInputEvent}/>                
+                <input type="text" value={addNewBook?.author} name="author" placeholder="author" onChange={handleInputEvent} />
+                <input type="text" value={addNewBook?.country} name="country" placeholder="country" onChange={handleInputEvent} />
+                <input type="text" value={addNewBook?.language} name="language" placeholder="language" onChange={handleInputEvent}/>
+                <input type="text" value={addNewBook?.link} name="link" placeholder="link" onChange={handleInputEvent}/>
+                <input type="number" value={addNewBook?.pages} name="pages" placeholder="pages" onChange={handleInputEvent}/>
+                <input type="text" value={addNewBook?.title} name="title" placeholder="title" onChange={handleInputEvent}/>
+                <input type="number" value={addNewBook?.year} name="year" placeholder="year" onChange={handleInputEvent}/>                
                 {
                     (location.state==null)?
                     <button className="form-btn" onClick={(event)=>{event.preventDefault();handleClickEvent()}}>Add New BooK</button>

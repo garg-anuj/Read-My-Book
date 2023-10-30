@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useSelector,useDispatch } from "react-redux";
-import {addSearchedKeyResult} from "../utils/searchedCacheSlice.js";
+import {addSearchedKeyResult} from "../Redux/searchedCacheSlice.js";
 import { axiosFetchFunction } from "../utils/helper.js";
 import { SEARCH_URL } from "../utils/constantFile.js";
 
@@ -29,12 +29,9 @@ const useSearchSuggestions =()=>{
                     
                     dispatch(addSearchedKeyResult({[inputText]:apiData?.data}))
                 }
-                );
-               
-
-                
+                ); 
             }        
-        },1000)
+        },300)
     
         return ()=>{
             clearTimeout(apiAction)

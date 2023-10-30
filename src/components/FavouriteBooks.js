@@ -2,19 +2,19 @@ import { useSelector } from "react-redux";
 import Card from "./Card";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import {delFavourites } from "../utils/FavouriteSlice";
+import {delCart } from "../Redux/AddToCartSlice";
 
 const FavouriteBooks = ()=>{
-    const favouriteItemsData= useSelector(state=>state?.favouriteItems?.favourtiteList);
-    const Dispatch = useDispatch();
+    const cartItemData= useSelector(state=>state?.cartItems?.cartList);
+    const dispatch = useDispatch();
     return <>
     <div className="video-container">
     <h1>Favorite Books</h1>
             <div className="card-container">
-                {favouriteItemsData?.map((card,index)=>{
+                {cartItemData?.map((card,index)=>{
             
                     const {title,bookId} = card;
-                    const data = {...card,actionTypes:() => Dispatch(delFavourites({title:title}))}
+                    const data = {...card,actionTypes:() => dispatch(delCart({title:title}))}
                     
                     return (
                         <Link to={"/books?v="+bookId} key={index}>

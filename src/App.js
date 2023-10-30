@@ -2,7 +2,7 @@ import './index.css';
 import Header from "./components/Header"
 import Body from "./components/Body";
 import {BrowserRouter, Routes, Route } from "react-router-dom";
-import {store} from "./utils/store";
+import {store} from "./Redux/store";
 import { Provider } from "react-redux";
 import BooksCard from './components/BooksCard';
 import AddNewBooks from './components/AddNewBooks';
@@ -24,7 +24,7 @@ function App() {
                 
                   {/* <Route path="/watch" element={<Body children={<Suspense fallback={<div>Loading...</div>}><TablePage children={<BooksCard/>}/></Suspense>}/>}/> */}
                   <Route path='/addNewBooks' element={<Body children={<AddNewBooks/>}/>}/>
-                  <Route path='/favourites' element={<Body children={<FavouriteBooks/>}/>}/>
+                  <Route path='/addToCart' element={<Body children={<FavouriteBooks/>}/>}/>
                   <Route path='/tabularPage' element={<Body children={<TabularPage/>}/>} />
 
                 </Routes>

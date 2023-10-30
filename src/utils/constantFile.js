@@ -10,9 +10,9 @@ export const btnStyle = {
   padding: "5px",
   margin: "5px",
   width: "100px",
-  color: "white",
+  color: "rgba(255,255,255,0.7)",
   backgroundColor: "transparent",
-  border: "1px solid white",
+  border: "1px solid rgba(255,255,255,0.3)",
   cursor:"pointer",
 };
 
@@ -20,8 +20,8 @@ export const inputStyle = {
   padding: "5px 12px",
   margin: "5px",
   width: "200px",
-  color: "white",
+  color: "rgba(255,255,255,0.7)",
   backgroundColor: "#101010",
   // backgroundColor: 'transparent',
-  border: "1px solid #ccc",
+  border: "1px solid rgba(255,255,255,0.3)",
 };

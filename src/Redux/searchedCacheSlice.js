@@ -6,7 +6,7 @@ export const searchedCacheSlice = createSlice({
     initialState:{},
     reducers:{
         addSearchedKeyResult:(state,action)=>{
-            state = Object.assign(state,action.payload)
+            state = Object.assign(state,action.payload);
         }
     }
 })

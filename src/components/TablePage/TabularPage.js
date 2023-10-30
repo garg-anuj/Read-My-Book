@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { axiosFetchFunction } from "../../utils/helper";
-import Pagination from "../Pagination";
+// import Pagination from "../Pagination";
 import "./table.css";
+// import style from "./table.module.css"; 
 import SearchBox from "../SearchBox";
 import {
   API_URL,
@@ -10,19 +11,23 @@ import {
   FILTRATION_URL,
 } from "../../utils/constantFile";
 import { Link } from "react-router-dom";
+import useLiveSearchItems from "../../customHooks/useLiveSearchItems";
+
+
+
+
 
 const btnStyle = {
-  // width:'100%',
   padding: "5px 10px",
   fontSize: "13px",
-  backgroundColor: "teal",
+  // backgroundColor: "teal",
   color: "white",
   border: "none",
   cursor: "pointer",
   boxShadow: "0 2px 4px rgba(0, 0, 0, 0.2)",
   transition: "background-color 0.3s",
   margin:"0 5px",
-  // backgroundColor:"#272727",
+  backgroundColor:"#272727",
 };
 
 const containerStyle ={
@@ -34,8 +39,10 @@ const containerStyle ={
   display: "flex",
   overflowX:"scroll",
   height:"30px",
-  margin:"10px",
-  display:"flex",
+  marginTop:"20px",
+  paddingTop:"2px",
+  borderTop:"1px solid #272727",
+  borderBottom:"1px solid #272727"
 }
 
 
@@ -45,7 +52,9 @@ const TabularPage = () => {
   }, []);
 
   const [bookData, setBookData] = useState();
-  const [getInput, setInput] = useState("");
+  const [gotInput, setInput] = useState("");
+  // const getLiveSearchedData =
+   useLiveSearchItems(setBookData)
 
 
   function fetchData(URL) {
@@ -53,18 +62,13 @@ const TabularPage = () => {
   }
 
   function handleInputEvent(event) {
-    fetchData(SEARCH_URL + event.target.value);
     setInput(event.target.value);
+    fetchData(SEARCH_URL + gotInput);
   }
+  
 
   function paginationButton(pageNo) {
     fetchData(PAGINATION_URL + pageNo);
-  }
-
-  function handleClickedButton(id, card) {
-    console.log(card);
-    console.log(id);
-    console.log(getInput);
   }
 
   function filtration(filterType) {
@@ -77,20 +81,17 @@ const TabularPage = () => {
 
 
 
-  console.log(Array.from({ length: bookData?.pagination?.totalPages}))
-
-
 
   return (
     <div className="mainTableContainer">
+
+    
+
     <SearchBox
           handleInputEvent={handleInputEvent}
           filtration={filtration}
         />
       <div className="tableBox">
-        {/* <button style={btnStyle}>Add ITem</button>
-        <button style={btnStyle}>Add ITem</button> */}
-        
         
         <table  className="my-table">
           <thead>
@@ -103,7 +104,7 @@ const TabularPage = () => {
               <th>Pages</th>
               <th>Year</th>
               <th>Link</th>
-              <th><button style={btnStyle}>Add ITem</button></th>
+              <th> <Link to={"/addNewBooks"}> <button style={btnStyle}>Add Button</button></Link></th>
             </tr>
           </thead>
 

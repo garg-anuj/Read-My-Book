@@ -209,6 +209,7 @@ button {
   min-height: 255px;
   margin-bottom: 2rem;
   /* overflow: hidden; */
+  background-color: transparent;
 }
 
 .video-card {
@@ -216,11 +217,12 @@ button {
   width: 100%;
   /* min-height: 255px; */
 }
-.video-card div{
-     /* border: 1px solid blue; */
+/* .video-card div{
+     border: 1px solid blue;
      position: relative;
+     z-index: 1 !important;
      padding: 5px;
-}
+} */
 .video-card img {
   /* border: 1px solid green; */
   /* min-width: 245px; */
@@ -282,7 +284,7 @@ button {
   max-height: 450px;
   border-radius: 15px;
   background-color: #212121 !important;
-  z-index: 1;
+  z-index: 9999 !important;
 
   overflow: hidden;
 }
@@ -369,16 +371,6 @@ header ul:nth-child(2) ul h1:hover {
 .favourite i:hover{
     color: orangered;
 }
-
-
-
-
-
-
-
-
-
-
 
 
 

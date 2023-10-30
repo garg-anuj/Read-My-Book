@@ -1,7 +1,7 @@
 import React from "react";
 import Card from "./Card";
 import { useDispatch } from "react-redux";
-import { addFavourites } from "../utils/FavouriteSlice";
+import { addCart } from "../Redux/AddToCartSlice";
 import { Link } from "react-router-dom";
 import { IMG_URL } from "../utils/constantFile";
 
@@ -13,7 +13,7 @@ export default function BookCard({book}) {
         author:book?.author,
         bookId:book?.id,
         thumbnails:IMG_URL,
-        actionTypes: () => dispatch(addFavourites({...book,thumbnails:IMG_URL})),
+        actionTypes: () => dispatch(addCart({...book,thumbnails:IMG_URL})),
     }
   return (
     // updateBooks

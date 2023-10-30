@@ -1,24 +1,27 @@
 import { useDispatch } from "react-redux";
-import { hamBurgerBtn } from "../utils/HamburgerSlice";
+import { hamBurgerBtn } from "../Redux/HamburgerSlice";
+import { useSelector } from "react-redux/es/hooks/useSelector";
 import useSearchSuggestions from "../customHooks/useSearchSuggestions.js";
 import { useState, } from "react";
-import { Link,useNavigate} from "react-router-dom";
+import { Link,
+    // useNavigate
+} from "react-router-dom";
+import { setSearchedValue } from "../Redux/handleSearchEventSlice ";
 
 
 const Header = ()=>{
     const [searchedData, setInputText,inputText] = useSearchSuggestions();
     const [isSuggestionVisible,setSuggestionVisible] = useState(false);
     const dispatch = useDispatch();
-    const navigate =  useNavigate(); 
+    // const navigate =  useNavigate(); 
     // console.log(isSuggestionVisible, searchedData)
+    const  cartCount= useSelector((state)=>state?.cartItems?.cartList?.length);
 
     function handleEvent(){
         dispatch(hamBurgerBtn());
     }
-    
-    // console.log(searchedData)
 
-    
+
     return (
         <header className="header">
     
@@ -34,9 +37,14 @@ const Header = ()=>{
                 onMouseLeave={()=>setSuggestionVisible(false)} 
                 // onBlur={()=>setSuggestionVisible(false)}
             >
-                <input placeholder="Search" 
+                <input placeholder="Live Search Suggestion" 
                     value={inputText}
-                    onChange={(event)=>{setInputText(event.target.value)}}
+                    onChange={(event)=>{
+                        dispatch(setSearchedValue(event.target.value));
+                        setInputText(event.target.value);
+                        
+                     }
+                    }
                     onFocus={()=>setSuggestionVisible(true)}   
                 />
 
@@ -65,9 +73,9 @@ const Header = ()=>{
 
 
             <ul className="">
-                <li><Link to={"/favourites"}><i className="bi bi-suit-heart-fill"></i></Link></li>
-                <li><i className="bi bi-cart"></i></li>
-                <li><i className="bi bi-person-circle"></i></li>
+                <li><Link to={"/AddtoCart"}><span>{cartCount}</span><i className="bi bi-cart"></i></Link></li>
+                {/* <li><i className="bi bi-suit-heart-fill"></i></li> */}
+                {/* <li><i className="bi bi-person-circle"></i></li> */}
             </ul>
 
         </header>

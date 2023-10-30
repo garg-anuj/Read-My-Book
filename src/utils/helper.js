@@ -7,7 +7,6 @@ export async function axiosFetchFunction(API_URL,cb){
         const apiDataResponse = await axios.get(API_URL);
         const apiData =apiDataResponse.data;
             return cb(apiData);
-        
      }catch(error){
         console.error("Error Fetching YoutubeData",error);
      }

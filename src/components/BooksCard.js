@@ -1,17 +1,20 @@
 import { useEffect, useState } from "react";
 import { axiosFetchFunction } from "../utils/helper";
 import BookCard from "./BookCard";
-import {API_URL, SEARCH_URL,PAGINATION_URL, FILTRATION_URL} from "../utils/constantFile";
+import {API_URL,PAGINATION_URL, FILTRATION_URL} from "../utils/constantFile";
 import Pagination from "./Pagination";
 import SearchBox from "./SearchBox";
+import useLiveSearchItems from "../customHooks/useLiveSearchItems";
 
 
 const BooksCard = () => {
-  const [items, setItem] = useState();
-  const [getInput, setInput] = useState("");
 
+  const [displayBooks, setDisplayBooks] = useState();
+  // const getLiveSearchedData = 
+  useLiveSearchItems(setDisplayBooks)
+  
   function fetchData(URL){
-    axiosFetchFunction(URL, apiData=>setItem(apiData))
+    axiosFetchFunction(URL, apiData=>setDisplayBooks(apiData))
   }
 
   useEffect(() => {
@@ -19,19 +22,8 @@ const BooksCard = () => {
   }, []);
 
 
-  function handleInputEvent(event) {
-    fetchData(SEARCH_URL + event.target.value);
-    setInput(event.target.value);
-  }
-
   function paginationButton(pageNo) {
     fetchData(PAGINATION_URL + pageNo);
-  }
-
-  function handleClickedButton(id,card) {
-    console.log(card)
-    console.log(id);
-    console.log(getInput)
   }
 
   function filtration(filterType) {
@@ -42,14 +34,14 @@ const BooksCard = () => {
   return (
     <div className="video-container">
      
-      <Pagination paginationData={Array.from({ length: items?.pagination?.totalPages })}  paginationButton={paginationButton} />
+      <Pagination paginationData={Array.from({ length: displayBooks?.pagination?.totalPages })}  paginationButton={paginationButton} />
     
       {/* --------------------------------searchBtn------------------------------Filteration---------------------------------------------- */}
-      <SearchBox handleInputEvent={handleInputEvent} filtration={filtration}/>
+      <SearchBox filtration={filtration}/>
 
       {/*---------------------------------------CARDS------------------------------------  */}
       <div className="card-container">
-        {items?.data?.map(card => <BookCard key={card.id} book={card} handleClickedButton={()=>handleClickedButton(card)}/>)}
+        {displayBooks?.data?.map(card => <BookCard key={card.id} book={card} />)}
       </div>
     </div>
   );
