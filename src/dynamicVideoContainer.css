@@ -1,0 +1,72 @@
+.video-container {
+    border: none;
+    /* border: 1px solid green; */
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+
+}
+
+.btn-container {
+    margin-top: 10px;
+    display: flex;
+    overflow-x: scroll;
+    width: 100%;
+}
+
+
+.card-container {
+    /* border-right: 1px solid skyblue; */
+    display: inline-flex;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+.card-container a {
+    /* border: 1px solid green; */
+    margin: 0.45rem;
+    padding: 0;
+    width: 100%;
+    min-width: 260px;
+    max-width: 400px;
+    height: 100px;
+    min-height: 100px;
+    max-height: 170px;
+}
+
+
+.video-card {
+    /* border: 1px solid red; */
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    max-width: 400px;
+    min-height: auto;
+    max-height: auto;
+    display: flex;
+    align-items: center;
+}
+
+.video-card img {
+    width: 170px;
+    height: 100px;
+}
+
+.video-card ul {
+    height: 100px;
+    display: flex;
+    gap: 0.5rem;
+    margin-left: 0.2rem;
+    /* align-items: center; */
+}
+.video-card ul li h1{
+    margin-bottom: 0.4rem;
+}
+
+
+.profileLogo {
+    display: none;
+}
