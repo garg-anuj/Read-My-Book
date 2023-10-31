@@ -255,7 +255,7 @@ input:focus {
   height: 60px;
   display: flex;
   justify-content: space-between;
-  align-items: start;
+  /* align-items: start; */
   gap: 0.5rem;
 }
 

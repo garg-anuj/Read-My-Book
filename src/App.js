@@ -7,7 +7,7 @@ import { Provider } from "react-redux";
 import BooksCard from "./components/dispalayBooksPage/BooksCard";
 import AddNewBooks from "./components/addNewBooksPage/AddNewBooks";
 
-import TabularPage from "./components/TablePage/TabularPage";
+import TabularPage from "./components/TableViewPage/TabularPage";
 import FavouriteBooks from "./components/addToCardPage/FavouriteBooks";
 // const TablePage = lazy(() => import("./components/WatchPage"));
 

@@ -4,19 +4,19 @@
 
 }
 
+/* video-container */
+/* mainTableContainer */
 .mainTableContainer {
-  position: relative;
-  left: 5%;
-  top: 10px;
-  border: 1px solid red;
-  height: calc(90vh - 10px);
+  /* border: 1px solid red; */
   overflow: scroll;
-  width: 90%;
+  width: 100%;
+  /* margin: 5px; */
+  padding: 25px;
 }
 
 .tableBox {
   width: 100%;
-  height: 60vh;
+  height: 80vh;
   overflow: scroll;
 }
 
@@ -30,7 +30,6 @@ table {
 th {
   position: sticky;
   top: 0px;
-  /* margin-bottom: 10px; */
   font-weight: 600;
   font-size: 1.2rem;
   color: green;
@@ -105,27 +104,14 @@ th a {
 
   .mainTableContainer {
     margin: 0;
-    border: none;
-    width: 95%;
-    max-width: 370px;
     height: 85vh;
+    padding: 0;
   }
 
   .tableBox {
     width: 100%;
-    height: 70vh;
+    height: 75vh;
     overflow: scroll;
   }
-
-  table {
-    border-collapse: collapse;
-    width: 300px !important;
-    height: 500px;
-  }
-
-  th {
-    height: 50px !important;
-  }
-
 
 }

@@ -33,6 +33,7 @@ export async function putFunction(PUT_URL, putData) {
 }
 
 export function handleImageLinkError(event) {
-  event.target.onerror = null;
+  event.target.onerror = "https://source.unsplash.com/1600x900/?car";
+  // console.log()
   event.target.src = `${IMG_URL}`;
 }
