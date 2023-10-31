@@ -11,17 +11,24 @@
   font-size: 0.9rem;
   color: white;
   background-color: #101010;
+  box-sizing: border-box;
 
+}
+
+a {
+  text-decoration: none;
+}
+
+input:focus {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0;
+  outline: none;
 }
 
 button {
   border: none;
 }
 
-.bi-youtube {
-  font-size: 2rem;
-  color: #f61c0d;
-}
 
 .App {
   position: fixed;
@@ -46,6 +53,8 @@ button {
 }
 
 
+
+
 .header ul li {
   display: flex;
   align-items: center;
@@ -68,7 +77,7 @@ button {
 
 .header ul:nth-child(1) a i {
   font-size: 2rem;
-  color: #f61c0d;
+  color: orange;
 }
 
 .header ul:nth-child(2) {
@@ -95,6 +104,10 @@ button {
 
 .header ul input {
   padding-left: 20px;
+}
+
+input:focus {
+  border: 2px solid red;
 }
 
 .header ul div {
@@ -129,14 +142,11 @@ button {
   margin-right: 10px;
 }
 
-/* !-----------------------------------------sideBAr---------------------------------------------- */
+/* !-----sideBAr-------- */
 
 .sideBar {
-  /* border: 1px solid red; */
   position: sticky;
   min-width: 180px;
-  /* width: 230px;
-  width: 40%; */
 }
 
 .sideBar div {
@@ -170,18 +180,18 @@ button {
 
 
 .video-container {
-  /* position: relative; */
   margin: 5px;
   width: 100%;
   padding: 0 25px;
+  overflow: scroll;
 }
 
-/* Button Container */
+
 .btn-container {
   position: relative;
   left: 50%;
   transform: translateX(-50%);
-  width: 80%;
+  width: 95%;
   display: flex;
   overflow: scroll;
 }
@@ -198,33 +208,32 @@ button {
 
 
 .card-container {
-  /* border: 1px solid skyblue; */
-  overflow-y: scroll;
   width: 100%;
-  /* width: calc(100% - 200px); */
-  height: 100%;
+  height: 90vh;
   display: flex;
   flex-wrap: wrap;
-  margin: 5px 0;
-  flex: 1 1 2;
+  overflow-y: scroll;
 }
 
 .card-container a {
-  /* border: 1px solid red; */
-  margin: 5px 7px;
+  /* border: 2px solid red; */
+  flex: auto;
+  margin: 0 7px;
   min-width: 310px;
   width: 15%;
-  max-width: 350px;
-  min-height: 255px;
+  max-width: 500px;
+  min-height: 200px;
+  height: 32%;
+  max-height: 250px;
+
   margin-bottom: 2rem;
-  /* overflow: hidden; */
   background-color: transparent;
+  /* aspect-ratio: 3 / 2.5; */
 }
 
 .video-card {
-  margin: 5px 0;
   width: 100%;
-  /* min-height: 255px; */
+  height: 100%;
 }
 
 /* .video-card div{
@@ -233,31 +242,38 @@ button {
      z-index: 1 !important;
      padding: 5px;
 } */
+
 .video-card img {
-  /* border: 1px solid green; */
-  /* min-width: 245px; */
   width: 100%;
-  /* max-width: 343px; */
   height: 175px;
-  /* max-height: 193px; */
   border-radius: 10px;
 }
 
 .video-card ul {
-  /* width:310x; */
+  position: relative;
+  width: 100%;
+  height: 60px;
   display: flex;
+  justify-content: space-between;
+  align-items: start;
   gap: 0.5rem;
 }
 
-
 .video-card ul li h1 {
-  /* background-color: #F61C0D; */
   overflow: hidden;
   min-height: 20px;
-  /* height: 40px; */
+  height: 40px;
+  width: 100%;
   max-height: 40px;
   text-overflow: clip;
   text-overflow: ellipsis;
+
+}
+
+.video-card ul li {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .video-card ul li p {
@@ -288,10 +304,10 @@ button {
   flex-direction: column;
   position: absolute;
   left: 50%;
-  transform: translateX(-53%);
+  transform: translateX(-49%);
   top: 100%;
+  width: 25% !important;
   max-width: 520px;
-  width: 28% !important;
   max-height: 450px;
   border-radius: 15px;
   background-color: #212121 !important;
@@ -304,13 +320,14 @@ button {
 }
 
 header ul:nth-child(2) ul h1 {
-  /* border-bottom: 1px solid rgba(255, 255, 255, 0.1); */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   font-weight: 300;
   font-size: 0.9rem;
   padding: 0.5rem 0;
   padding-left: 1.5rem;
   background-color: transparent;
   cursor: pointer;
+  text-align: start;
 }
 
 header ul:nth-child(2) ul h1:hover {
@@ -331,27 +348,12 @@ header ul:nth-child(2) ul h1:hover {
 } */
 
 /* !--------BooksStore------------------------------- */
-.card-container a {
-  /* border: 1px solid rgba(255, 255, 255, 0.2); */
-  width: 15%;
-  /* min-width: 200px; */
-  /* padding: 10px; */
-  /* border-radius: 10px 10px 0 0; */
-}
-
-/* .card-container a:hover{
-    border: 1px solid rgba(255, 255, 255, 0.2);
-  } */
 
 .btn {
   border: 1px solid rgba(255, 255, 255, 0.2);
   cursor: pointer;
   padding: 10px;
   width: 100px;
-  position: relative;
-  top: 50%;
-  transform: translateY(-50%);
-  margin-right: 8px;
 }
 
 .btn:hover {
@@ -398,89 +400,136 @@ header ul:nth-child(2) ul h1:hover {
 
 
 /* !----------------Header Responsive---------------------------- */
-@media (width<=770px) {
 
-  .header ul:nth-child(1) a li {
-    gap: 0.1rem;
-    font-size: 1rem;
-    font-weight: 500;
+@media (width<=600px) {
+  a {
+    text-decoration: none;
   }
 
-  .header ul:nth-child(1) a i {
-    font-size: 1.8rem;
-    color: orange;
-  }
-
-  .header ul:nth-child(2),
-  .header ul:nth-child(3) {
-    display: none;
-  }
-
-  .header ul:nth-child(1),
-  .header ul:nth-child(2) li {
+  .header {
+    display: flex;
+    z-index: 1;
+    width: 100%;
+    height: 50px;
+    padding: 0;
     margin: 0;
   }
 
-  .header ul:nth-child(1) {
-    justify-content: space-between;
+  .header ul {
+    display: flex;
+  }
+
+  .header ul {
+    background-color: transparent;
+    flex: 1;
+    text-align: center;
+  }
+
+
+  .header ul:nth-child(2) {
+    flex: 7;
+    margin: 0;
+  }
+
+  .header ul a,
+  .header ul:nth-child(2) div {
+    display: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  header ul:nth-child(2) {
+    display: block !important;
+    padding: 5px;
+  }
+
+  header ul:nth-child(2) input {
     width: 100%;
+    padding: 0;
+    margin-left: 2px;
+    border-radius: 0;
+    align-items: center;
+    height: 90%;
+  }
+
+
+  .header ul:nth-child(3) {
+    flex: 1.5;
+    width: 100%;
+    display: block;
+  }
+
+  .header ul:nth-child(3) a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    height: 45px;
+  }
+
+
+  .suggestionBox {
+    position: absolute;
+    left: 50%;
+    top: 90%;
+    transform: translateX(-56%);
+    width: 64% !important;
+    max-height: 350px;
+    border-radius: 0 0 15px 15px;
+  }
+
+
+  .sideBar {
+    position: absolute;
+    z-index: 1;
+    min-width: 180px;
+    height: 90vh;
+  }
+
+  .video-container {
+    margin: 5px;
+    width: 100%;
+    padding: 0;
+  }
+
+  .card-container a {
+    margin: 0;
+    margin-bottom: 1rem;
+  }
+
+  .video-card ul {
+    padding: 0 10px;
+  }
+
+}
+
+
+
+
+
+/* For landscape devices */
+@media (width>600px) and (width < 900px) {
+
+
+  .header {
+    margin: 8px;
+  }
+
+  .header ul:nth-child(2) {
+    width: 50%;
+    position: relative;
+    left: 5%;
+    top: 5px;
   }
 
   .header ul:nth-child(1) a li {
     display: none;
   }
 
-  .header ul:nth-child(1) li:first-child {
-    display: flex;
-    align-items: center;
-    font-size: 1.3rem;
-  }
-
-  .header ul:nth-child(1) li:nth-child(2),
-  .header ul:nth-child(1) li:nth-child(3) {
-    display: none;
-  }
-
-  .header ul:nth-child(1) li:last-child {
-    display: flex;
-    align-items: center;
-    font-size: 1.3rem;
-  }
-
-  .header ul:nth-child(1) i {
-    font-size: 1.7rem;
-  }
-
-  .header ul:nth-child(1) i:hover {
-    background-color: transparent;
-  }
-}
-
-
-
-
-/* For mobile devices */
-@media (width<=600px) {
-  .header ul {
-    flex-direction: column;
-    text-align: center;
-  }
-}
-
-/* For tablet devices */
-@media only screen and (min-width: 601px) and (max-width: 900px) {
-  .header ul:nth-child(2) {
-    width: 50%;
-  }
-}
-
-/* For landscape devices */
-@media only screen and (min-width: 901px) {
-
-  /* .header ul {
-    flex-wrap: wrap;
-  } */
-  .header ul:nth-child(2) {
-    width: 30%;
+  .sideBar {
+    position: absolute;
+    z-index: 1;
+    min-width: 180px;
+    height: 90vh;
   }
 }

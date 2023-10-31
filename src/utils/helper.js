@@ -1,4 +1,5 @@
 import axios from "axios";
+import { IMG_URL } from "./constantFile";
 
 export async function axiosFetchFunction(API_URL, cb) {
   try {
@@ -29,4 +30,9 @@ export async function putFunction(PUT_URL, putData) {
   } catch (error) {
     console.log(error);
   }
+}
+
+export function handleImageLinkError(event) {
+  event.target.onerror = null;
+  event.target.src = `${IMG_URL}`;
 }

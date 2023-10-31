@@ -37,10 +37,8 @@ const BooksCard = () => {
         paginationButton={paginationButton}
       />
 
-      {/* --------------------------------searchBtn------------------------------Filteration---------------------------------------------- */}
       <SearchBox filtration={filtration} />
 
-      {/*---------------------------------------CARDS------------------------------------  */}
       <div className="card-container">
         {displayBooks?.data?.map((card) => (
           <BookCard key={card.id} book={card} />

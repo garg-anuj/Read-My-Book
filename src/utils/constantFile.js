@@ -10,6 +10,8 @@ export const PUT_URL =
 export const POST_URL =
   "http://68.178.162.203:8080/application-test-v1.1/books";
 
+export const EMPTY_OBJECT = Object.freeze({});
+
 export const btnStyle = {
   padding: "5px",
   margin: "5px",

@@ -11,7 +11,7 @@ export default function BookCard({ book }) {
     title: book?.title,
     author: book?.author,
     bookId: book?.id,
-    thumbnails: IMG_URL,
+    thumbnails: book?.link,
     actionTypes: () => dispatch(addCart({ ...book, thumbnails: IMG_URL })),
   };
   return (

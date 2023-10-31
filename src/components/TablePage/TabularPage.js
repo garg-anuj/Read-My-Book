@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
+import Table from "react-bootstrap/Table";
 import { axiosFetchFunction } from "../../utils/helper";
-// import Pagination from "../Pagination";
-import "./table.css";
-// import style from "./table.module.css";
+import { Link } from "react-router-dom";
+
+import React, { useEffect, useState } from "react";
 import SearchBox from "../SearchBox";
 import {
   API_URL,
@@ -10,8 +10,10 @@ import {
   PAGINATION_URL,
   FILTRATION_URL,
 } from "../../utils/constantFile";
-import { Link } from "react-router-dom";
+
 import useLiveSearchItems from "../../customHooks/useLiveSearchItems";
+import "./table.css";
+// import Pagination from "../Pagination";
 
 const btnStyle = {
   padding: "5px 10px",
@@ -30,7 +32,7 @@ const containerStyle = {
   backgroundColor: "transparent",
   position: "relative",
   left: "50%",
-  transform: "translateX(-55%)",
+  transform: "translateX(-60%)",
   width: "80%",
   display: "flex",
   overflowX: "scroll",
@@ -75,8 +77,9 @@ const TabularPage = () => {
   return (
     <div className="mainTableContainer">
       <SearchBox handleInputEvent={handleInputEvent} filtration={filtration} />
+
       <div className="tableBox">
-        <table className="my-table">
+        <Table striped bordered hover variant="dark">
           <thead>
             <tr>
               <th onClick={() => sortingById(bookData?.data)}>ID</th>
@@ -116,7 +119,7 @@ const TabularPage = () => {
               </tr>
             ))}
           </tbody>
-        </table>
+        </Table>
       </div>
 
       <div className="video-container">

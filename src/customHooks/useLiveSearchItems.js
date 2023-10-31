@@ -12,7 +12,7 @@ const useLiveSearchItems = (cb) => {
   useEffect(() => {
     if (getSearchedValue !== "")
       axiosFetchFunction(SEARCH_URL + getSearchedValue, (data) => cb(data));
-  }, [getSearchedValue]);
+  }, [getSearchedValue, cb]);
 };
 
 export default useLiveSearchItems;

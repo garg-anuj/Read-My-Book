@@ -1,9 +1,11 @@
-import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 
-import "../style/addBookPage.css";
+import { useEffect, useState } from "react";
+
 import { POST_URL, PUT_URL } from "../utils/constantFile.js";
+import { EMPTY_OBJECT } from "../utils/constantFile.js";
 import { postFunction, putFunction } from "../utils/helper";
+import "../style/addBookPage.css";
 
 const EMPTY_BOOK_INFO = {
   author: "",
@@ -14,8 +16,6 @@ const EMPTY_BOOK_INFO = {
   title: "",
   year: "",
 };
-
-const EMPTY_OBJECT = Object.freeze({});
 
 const AddNewBooks = () => {
   const location = useLocation();
@@ -70,7 +70,7 @@ const AddNewBooks = () => {
             onChange={handleInputEvent}
           />
           <input
-            type="text"
+            type="url"
             value={addNewBook?.link}
             name="link"
             placeholder="link"

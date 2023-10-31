@@ -4,16 +4,18 @@ import { addSearchedKeyResult } from "../Redux/searchedCacheSlice.js";
 import { axiosFetchFunction } from "../utils/helper.js";
 import { SEARCH_URL } from "../utils/constantFile.js";
 
+let count = 0;
+
 const useSearchSuggestions = () => {
   const [inputText, setInputText] = useState("");
   const [searchData, setSearchData] = useState([]);
   const searchedCache = useSelector((state) => state.searchCache);
   const dispatch = useDispatch();
-  const [count, setCount] = useState(0);
 
   useEffect(() => {
+    count = count + 1;
+
     let apiAction = setTimeout(() => {
-      setCount(count + 1);
       if (searchedCache[inputText]) {
         console.log("Api not called Data From Redux");
         setSearchData(searchedCache[inputText]);
@@ -28,14 +30,14 @@ const useSearchSuggestions = () => {
       }
     }, 300);
 
+    console.log("render", count);
+
     return () => {
       clearTimeout(apiAction);
     };
-  }, [inputText, searchedCache, dispatch, count]);
+  }, [inputText, searchedCache, dispatch]);
 
-  console.log("render", count);
-
-  return [searchData, setInputText, inputText, count];
+  return [searchData, setInputText, inputText];
 };
 
 export default useSearchSuggestions;

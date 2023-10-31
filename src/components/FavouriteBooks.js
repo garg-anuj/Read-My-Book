@@ -1,9 +1,9 @@
-import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { delCart } from "../Redux/AddToCartSlice";
+import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 
 import Card from "./Card";
-import { delCart } from "../Redux/AddToCartSlice";
 
 const FavouriteBooks = () => {
   const cartItemData = useSelector((state) => state?.cartItems?.cartList);
