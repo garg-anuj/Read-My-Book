@@ -1,10 +1,14 @@
 import { useEffect, useState } from "react";
-import { axiosFetchFunction } from "../utils/helper";
+import { axiosFetchFunction } from "../../utils/helper";
 import BookCard from "./BookCard";
-import { API_URL, PAGINATION_URL, FILTRATION_URL } from "../utils/constantFile";
-import Pagination from "./Pagination";
-import SearchBox from "./SearchBox";
-import useLiveSearchItems from "../customHooks/useLiveSearchItems";
+import {
+  API_URL,
+  PAGINATION_URL,
+  FILTRATION_URL,
+} from "../../utils/constantFile";
+import Pagination from "../Pagination";
+import SearchBox from "../SearchBox";
+import useLiveSearchItems from "../../customHooks/useLiveSearchItems";
 
 const BooksCard = () => {
   const [displayBooks, setDisplayBooks] = useState();

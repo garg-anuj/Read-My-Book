@@ -4,10 +4,11 @@ import Body from "./components/Body";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { store } from "./Redux/store";
 import { Provider } from "react-redux";
-import BooksCard from "./components/BooksCard";
-import AddNewBooks from "./components/AddNewBooks";
-import FavouriteBooks from "./components/FavouriteBooks";
+import BooksCard from "./components/dispalayBooksPage/BooksCard";
+import AddNewBooks from "./components/addNewBooksPage/AddNewBooks";
+
 import TabularPage from "./components/TablePage/TabularPage";
+import FavouriteBooks from "./components/addToCardPage/FavouriteBooks";
 // const TablePage = lazy(() => import("./components/WatchPage"));
 
 function App() {

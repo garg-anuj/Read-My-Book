@@ -1,9 +1,12 @@
-import React from "react";
-import Card from "./Card";
 import { useDispatch } from "react-redux";
-import { addCart } from "../Redux/AddToCartSlice";
 import { Link } from "react-router-dom";
-import { IMG_URL } from "../utils/constantFile";
+import { addCart } from "../../Redux/AddToCartSlice";
+
+import React from "react";
+
+import Card from "./Card";
+
+import { IMG_URL } from "../../utils/constantFile";
 
 export default function BookCard({ book }) {
   const dispatch = useDispatch();
@@ -15,7 +18,6 @@ export default function BookCard({ book }) {
     actionTypes: () => dispatch(addCart({ ...book, thumbnails: IMG_URL })),
   };
   return (
-    // updateBooks
     <Link to={"/addNewBooks"} state={book}>
       <Card data={data} />
     </Link>

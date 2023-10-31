@@ -1,14 +1,14 @@
 import { useLocation } from "react-router-dom";
 // import { useEffect } from "react";
 
-import { handleImageLinkError } from "../utils/helper";
+import { handleImageLinkError } from "../../utils/helper";
 
 const Card = ({ data }) => {
   const { pathname } = useLocation();
 
   // useEffect(() => {
   //   const currentUrl = window.location.href;
-  //   console.log("card Rener");
+  //   console.log("card Render");
   //   currentUrl.includes("AddtoCart");
   // }, []);
 
