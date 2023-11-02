@@ -11,7 +11,7 @@ const Header = () => {
   const [books, searchText, setSearchText] = useSearchSuggestions();
   const [isSuggestionVisible, setSuggestionVisible] = useState(true);
   const dispatch = useDispatch();
-  const cartCount = useSelector((state) => state?.cartItems?.cartList?.length);
+  const cartCount = useSelector((state) => state?.cartBooks?.cartBooks?.length);
 
   function handleEvent() {
     dispatch(hamBurgerStateBurger());
