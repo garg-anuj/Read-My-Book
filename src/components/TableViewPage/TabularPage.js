@@ -1,26 +1,25 @@
 import Table from "react-bootstrap/Table";
-import { axiosFetchFunction } from "../../utils/helper";
 import { Link } from "react-router-dom";
-
-import { React, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 import Pagination from "../Pagination";
 import SearchBox from "../SearchBox";
 
 import useLiveSearchItems from "../../customHooks/useLiveSearchItems";
-import { smallBtnStyle } from "../../utils/constantFile";
+import { getMethod } from "../../services";
+import { smallBtnStyle } from "../../constants/styles";
 import {
   API_URL,
   SEARCH_URL,
   PAGINATION_URL,
   FILTRATION_URL,
-} from "../../utils/constantFile";
+} from "../../constants/urls";
 
 import "./table.css";
 
 const TabularPage = () => {
   useEffect(() => {
-    axiosFetchFunction(API_URL, (apiData) => setBookData(apiData));
+    getMethod(API_URL).then((res) => setBookData(res));
   }, []);
 
   const [bookData, setBookData] = useState();
@@ -29,7 +28,7 @@ const TabularPage = () => {
   useLiveSearchItems(setBookData);
 
   function fetchData(URL) {
-    axiosFetchFunction(URL, (apiData) => setBookData(apiData));
+    getMethod(URL).then((res) => setBookData(res));
   }
 
   function handleInputEvent(event) {

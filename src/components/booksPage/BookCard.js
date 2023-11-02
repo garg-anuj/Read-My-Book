@@ -1,12 +1,8 @@
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { addCart } from "../../Redux/AddToCartSlice";
-
-import React from "react";
 
 import Card from "./Card";
-
-import { IMG_URL } from "../../utils/constantFile";
+import { addBookToCart } from "../../redux/cartSlice";
 
 export default function BookCard({ book }) {
   const dispatch = useDispatch();
@@ -14,8 +10,13 @@ export default function BookCard({ book }) {
     title: book?.title,
     author: book?.author,
     bookId: book?.id,
-    thumbnails: book?.link,
-    actionTypes: () => dispatch(addCart({ ...book, thumbnails: IMG_URL })),
+    link: book?.link,
+    actionTypes: () =>
+      dispatch(
+        addBookToCart({
+          ...book,
+        })
+      ),
   };
   return (
     <Link to={"/addNewBooks"} state={book}>

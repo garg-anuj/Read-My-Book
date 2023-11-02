@@ -1,7 +1,7 @@
 import { useLocation } from "react-router-dom";
-// import { useEffect } from "react";
 
-import { handleImageLinkError } from "../../utils/helper";
+import { handleImageLinkError } from "../../services";
+import { IMG_URL } from "../../constants/urls";
 
 const Card = ({ data }) => {
   const { pathname } = useLocation();
@@ -12,13 +12,13 @@ const Card = ({ data }) => {
   //   currentUrl.includes("AddtoCart");
   // }, []);
 
-  const { thumbnails, title, author, actionTypes } = data;
+  const { link, title, author, actionTypes } = data;
 
   return (
     <>
       <div className="video-card">
         <div>
-          <img src={thumbnails} alt="img_src" onError={handleImageLinkError} />
+          <img src={IMG_URL + link} alt="Book" onError={handleImageLinkError} />
           {/* <button
             className="favourite"
             onClick={(e) => {
@@ -43,7 +43,7 @@ const Card = ({ data }) => {
                 actionTypes();
               }}
             >
-              {pathname === "/AddtoCart" ? "Remove" : "Add"}
+              {pathname === "/addToCart" ? "Remove" : "Add"}
             </button>
           </li>
         </ul>

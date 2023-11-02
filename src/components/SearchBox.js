@@ -1,8 +1,5 @@
 import React from "react";
-import {
-  btnStyle,
-  //  inputStyle
-} from "../utils/constantFile";
+import { btnStyle } from "../constants/styles";
 // import { useDispatch } from "react-redux";
 // import { setSearchedValue } from '../Redux/handleSearchEventSlice ';
 // import {}

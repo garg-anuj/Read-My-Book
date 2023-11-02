@@ -7,7 +7,7 @@ const Body = ({ children }) => {
 
   return (
     <div className="body">
-      {hamBurger.toggleHam ? <SideBar /> : null}
+      {hamBurger.hamBurgerState ? <SideBar /> : null}
 
       {/* <Outlet/> */}
       {/* SearchPage   */}

@@ -1,5 +1,4 @@
-/* For mobile devices */
-@media (width<=600px) {
+@media (width<=610px) {
     a {
         text-decoration: none;
     }
@@ -65,9 +64,17 @@
         height: 45px;
     }
 
-    .header ul input:focus {
-        border: 1px solid red !important;
+
+    .suggestionBox {
+        position: absolute;
+        left: 50%;
+        top: 90%;
+        transform: translateX(-56%);
+        width: 64% !important;
+        max-height: 350px;
+        border-radius: 0 0 15px 15px;
     }
+
 
     .sideBar {
         position: absolute;
@@ -82,12 +89,59 @@
         padding: 0;
     }
 
+    .video-card ul {
+        padding: 0 10px;
+    }
+
+    .card-container a {
+        min-width: 260px;
+        width: 15%;
+        max-width: 348px;
+        margin-bottom: 1rem;
+    }
+
+}
+
+@media (width<=400px) {
     .card-container a {
         margin: 0;
         margin-bottom: 1rem;
     }
+}
 
-    .video-card ul {
-        padding: 0 10px;
+
+
+
+
+/* For landscape devices */
+@media (width>600px) and (width < 900px) {
+
+
+    .header {
+        margin: 8px;
+    }
+
+    .header ul:nth-child(2) {
+        width: 50%;
+        position: relative;
+        left: 5%;
+        top: 5px;
+    }
+
+    .header ul:nth-child(1) a li {
+        display: none;
+    }
+
+    .sideBar {
+        position: absolute;
+        z-index: 1;
+        min-width: 180px;
+        height: 90vh;
+    }
+
+    .card-container a {
+        min-width: 260px;
+        width: 15%;
+        margin-bottom: 1rem;
     }
 }

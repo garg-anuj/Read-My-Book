@@ -1,43 +1,37 @@
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { addSearchedKeyResult } from "../Redux/searchedCacheSlice.js";
-import { axiosFetchFunction } from "../utils/helper.js";
-import { SEARCH_URL } from "../utils/constantFile.js";
 
-let count = 0;
+import { addSearchedKeyResult } from "../redux/searchedCacheSlice.js";
+import { getMethod } from "../services.js";
+import { SEARCH_URL } from "../constants/urls";
 
 const useSearchSuggestions = () => {
-  const [inputText, setInputText] = useState("");
-  const [searchData, setSearchData] = useState([]);
-  const searchedCache = useSelector((state) => state.searchCache);
+  const [searchText, setSearchText] = useState("");
+  const [books, setBooks] = useState([]);
+  const booksByName = useSelector((state) => state.searchCache);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    count = count + 1;
-
-    let apiAction = setTimeout(() => {
-      if (searchedCache[inputText]) {
+    // Added debounce concepts
+    const apiAction = setTimeout(() => {
+      if (booksByName[searchText]) {
         console.log("Api not called Data From Redux");
-        setSearchData(searchedCache[inputText]);
+        setBooks(booksByName[searchText]);
       } else {
         console.log("Api Data called");
-        axiosFetchFunction(SEARCH_URL + inputText, (apiData) => {
-          setSearchData(apiData?.data);
-          console.log(apiData?.data);
-
-          dispatch(addSearchedKeyResult({ [inputText]: apiData?.data }));
+        getMethod(SEARCH_URL + searchText, (apiData) => {
+          setBooks(apiData?.data);
+          dispatch(addSearchedKeyResult({ [searchText]: apiData?.data }));
         });
       }
     }, 300);
 
-    console.log("render", count);
-
     return () => {
       clearTimeout(apiAction);
     };
-  }, [inputText, searchedCache, dispatch]);
+  }, [searchText, booksByName, dispatch]);
 
-  return [searchData, setInputText, inputText];
+  return [books, searchText, setSearchText];
 };
 
 export default useSearchSuggestions;

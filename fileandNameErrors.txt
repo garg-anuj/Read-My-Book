@@ -1,0 +1,117 @@
+FileName + slice || name ||initialState || action 
+toggleHamburger 
+hamBurgerState      
+
+f addToCartSlice = cartSlice 
+n cartItems = cart
+i cartList = cartBooks
+a
+
+
+
+
+
+
+hamBurger btn  Check name ::  "toggle menu"//collapsible menu.  hamBurger, hamBurgerSlice 
+    name: 'sidebar',||sidebarVisibility||
+    initialState  : isSidebarOpen||isSideVisible
+    action :  toggleSidebar ||  isSidebarVisibile
+
+
+
+flName:  searchTermSlice.js
+Name:    searchTerm
+initialState: value;
+actions:   setSearchTerm
+
+
+[inputText] == [searchedValue]
+[setSearchData] == ?
+searchedCache  == fetchedSearchedCachedData || fetchedCachedSearchedData || cacheBook (Result)
+
+handleSearchEventSlice?
+
+
+
+NOTE:-
+    utils isme /sorting /filtering / joh hr jge kaam kre
+     services : lodash
+
+    constant :- urls / styles/
+
+    actions : eat, sleep  function like which get value keep unke naame getSerchdValue
+    method : get Post pult librabry independent name
+
+
+
+Constant URL Names
+    API_URL, BASE_URL: 
+    IMAGE_URL, IMG_API: 
+    FETCH_DATA_URL, GET_DATA_URL:
+    LOGO_IMG, SPLASH_SCREEN_IMG, PROFILE_PIC_IMG:
+
+
+Image Names: 
+    mainImage, featuredImage: For primary or featured images.
+    thumbnailImage, iconImage: For smaller images used as thumbnails or icons.
+
+
+Function Names:
+    fetchData, getData: For functions responsible for fetching or retrieving data from an API.
+    handleDataFetch, retrieveData: For functions that handle the process of fetching data.
+
+
+Fetch_API_Fn
+    fetchData:
+
+    Indicates a generic term for fetching data.
+    retrieveData:
+
+    Suggests the action of gathering information from an API.
+    fetchFromAPI:
+
+    Describes fetching data from an API resource.
+    getDataFromURL:
+
+    Specifies the action of obtaining data from a specific URL.
+    fetchContent:
+
+    Implies the action of fetching information or content.
+    requestData:
+
+    Represents a request for data from a particular source.
+    fetchDataFromSource:
+
+    Conveys the action of retrieving data from a specific source.
+    fetchAPIResponse:
+
+    Indicates the process of fetching a response from an API.
+
+
+
+    sendPostRequest:
+
+        Describes the action of sending a POST request.
+        submitPostData:
+
+        Reflects the action of submitting data via a POST request.
+        postRequestHandler:
+
+        Indicates a function that handles POST requests.
+        executePostMethod:
+
+        Describes the execution of a POST request.
+        performPostAction:
+
+        Indicates performing an action using a POST request.
+        postAPICall:
+
+        Denotes an API call for a POST request.
+        handlePostData:
+
+        Reflects the action of handling or managing data sent via a POST request.
+
+
+
+passing Cb in useEffect()
+

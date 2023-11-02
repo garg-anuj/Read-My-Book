@@ -1,12 +1,11 @@
 import { useLocation } from "react-router-dom";
-
 import { useEffect, useState } from "react";
 
-import { POST_URL, PUT_URL } from "../../utils/constantFile.js";
-import { EMPTY_OBJECT } from "../../utils/constantFile.js";
-import { postFunction, putFunction } from "../../utils/helper.js";
+import { putMethod, postMethod } from "../../services";
+import { POST_URL, PUT_URL } from "../../constants/urls";
+import { EMPTY_OBJECT } from "../../constants/general";
 
-import "../../style/addBookPage.css";
+import "../../styles/addBookPage.css";
 
 const EMPTY_BOOK_INFO = {
   author: "",
@@ -26,102 +25,122 @@ const AddNewBooks = () => {
   }, [location?.state]);
 
   const [addNewBook, setNewBook] = useState(EMPTY_BOOK_INFO);
+  const [placeholderValue, setPlaceHolderValue] = useState(EMPTY_BOOK_INFO);
 
   function handleInputEvent(event) {
     const { target } = event || EMPTY_OBJECT;
     const { name, value } = target || EMPTY_OBJECT;
+    setPlaceHolderValue(event.target.placeholder);
+    console.log(placeholderValue);
     setNewBook({ ...addNewBook, [name]: value });
   }
 
-  function handleClickEvent() {
-    postFunction(POST_URL, addNewBook);
+  function handleCreateBook() {
+    postMethod(POST_URL, addNewBook);
     setNewBook(EMPTY_BOOK_INFO);
   }
 
-  function handleEditEvent() {
+  function handleEditBook() {
     let bookId = location?.state?.id;
-    putFunction(PUT_URL + bookId, addNewBook);
+    putMethod(PUT_URL + bookId, addNewBook);
     setNewBook(EMPTY_BOOK_INFO);
   }
 
-  const { author, country } = addNewBook || EMPTY_OBJECT;
   return (
-    <>
-      <div className="inputBox">
-        <form>
-          <input
-            type="text"
-            value={author}
-            name="author"
-            placeholder="author"
-            onChange={handleInputEvent}
-          />
-          <input
-            type="text"
-            value={country}
-            name="country"
-            placeholder="country"
-            onChange={handleInputEvent}
-          />
-          <input
-            type="text"
-            value={addNewBook?.language}
-            name="language"
-            placeholder="language"
-            onChange={handleInputEvent}
-          />
-          <input
-            type="url"
-            value={addNewBook?.link}
-            name="link"
-            placeholder="link"
-            onChange={handleInputEvent}
-          />
-          <input
-            type="number"
-            value={addNewBook?.pages}
-            name="pages"
-            placeholder="pages"
-            onChange={handleInputEvent}
-          />
-          <input
-            type="text"
-            value={addNewBook?.title}
-            name="title"
-            placeholder="title"
-            onChange={handleInputEvent}
-          />
-          <input
-            type="number"
-            value={addNewBook?.year}
-            name="year"
-            placeholder="year"
-            onChange={handleInputEvent}
-          />
-          {location.state == null ? (
-            <button
-              className="form-btn"
-              onClick={(event) => {
-                event.preventDefault();
-                handleClickEvent();
-              }}
-            >
-              Add New BooK
-            </button>
-          ) : (
-            <button
-              className="form-btn"
-              onClick={(event) => {
-                event.preventDefault();
-                handleEditEvent();
-              }}
-            >
-              Edit BooK
-            </button>
-          )}
-        </form>
-      </div>
-    </>
+    <div className="form-container">
+      <form>
+        <label htmlFor="author">{placeholderValue.author}</label>
+        <input
+          type="text"
+          value={addNewBook?.author}
+          id="author"
+          name="author"
+          placeholder="author"
+          onChange={handleInputEvent}
+          size={10}
+        />
+        <label htmlFor="country">Country</label>
+        <input
+          type="text"
+          value={addNewBook?.country}
+          name="country"
+          placeholder="country"
+          onChange={handleInputEvent}
+          size={20}
+        />
+        <label htmlFor="language">language</label>
+        <input
+          type="text"
+          value={addNewBook?.language}
+          id="language"
+          name="language"
+          placeholder="language"
+          onChange={handleInputEvent}
+          size={20}
+        />
+        <label htmlFor="link">Link</label>
+        <input
+          type="url"
+          value={addNewBook?.link}
+          id="link"
+          name="link"
+          placeholder="link"
+          onChange={handleInputEvent}
+          size={20}
+        />
+        <label htmlFor="pages">Pages</label>
+        <input
+          type="number"
+          value={addNewBook?.pages}
+          id="pages"
+          name="pages"
+          placeholder="pages"
+          onChange={handleInputEvent}
+          size={10}
+        />
+        <label htmlFor="title">title</label>
+        <input
+          type="text"
+          value={addNewBook?.title}
+          id="title"
+          name="title"
+          placeholder="title"
+          onChange={handleInputEvent}
+          size={20}
+        />
+        <label htmlFor="year">year</label>
+        <input
+          type="number"
+          value={addNewBook?.year}
+          id="year"
+          name="year"
+          placeholder="year"
+          onChange={handleInputEvent}
+          size={4}
+        />
+        {location.state == null ? (
+          <button
+            className="form-btn"
+            onClick={(event) => {
+              event.preventDefault();
+              handleCreateBook();
+            }}
+          >
+            Add New BooK
+          </button>
+        ) : (
+          <button
+            className="form-btn"
+            onClick={(event) => {
+              event.preventDefault();
+              handleEditBook();
+            }}
+          >
+            Edit BooK
+          </button>
+        )}
+      </form>
+    </div>
   );
 };
 

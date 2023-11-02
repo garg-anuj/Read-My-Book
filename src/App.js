@@ -1,15 +1,16 @@
-import "./index.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Provider } from "react-redux";
+
+import { store } from "./redux/store";
+
 import Header from "./components/Header";
 import Body from "./components/Body";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { store } from "./Redux/store";
-import { Provider } from "react-redux";
-import BooksCard from "./components/dispalayBooksPage/BooksCard";
+import BooksCard from "./components/booksPage";
 import AddNewBooks from "./components/addNewBooksPage/AddNewBooks";
+import TabularPage from "./components/tableViewPage/TabularPage";
+import AddToCardPage from "./components/addToCardPage/AddToCardPage";
 
-import TabularPage from "./components/TableViewPage/TabularPage";
-import FavouriteBooks from "./components/addToCardPage/FavouriteBooks";
-// const TablePage = lazy(() => import("./components/WatchPage"));
+import "./index.css";
 
 function App() {
   return (
@@ -20,14 +21,14 @@ function App() {
           <Routes>
             <Route path="/" element={<Body children={<BooksCard />} />} />
 
-            {/* <Route path="/watch" element={<Body children={<Suspense fallback={<div>Loading...</div>}><TablePage children={<BooksCard/>}/></Suspense>}/>}/> */}
+            {/* <Route path="/bookInfoPage" element={<Body children={<Suspense fallback={<div>Loading...</div>}><TablePage children={<BooksCard/>}/></Suspense>}/>}/> */}
             <Route
               path="/addNewBooks"
               element={<Body children={<AddNewBooks />} />}
             />
             <Route
               path="/addToCart"
-              element={<Body children={<FavouriteBooks />} />}
+              element={<Body children={<AddToCardPage />} />}
             />
             <Route
               path="/tabularPage"

@@ -1,15 +1,15 @@
 import { configureStore } from "@reduxjs/toolkit";
-import HamburgerSlice from "./HamburgerSlice.js";
+
+import cartSlice from "./cartSlice.js";
+import hamBurgerSlice from "./hamburgerSlice.js";
 import searchedCacheSlice from "./searchedCacheSlice.js";
-import AddToCartSlice from "./AddToCartSlice.js";
-import handleSearchEventSlice from "./handleSearchEventSlice .js";
+import searchDetailSlice from "./searchDetailSlice.js";
 
 export const store = configureStore({
   reducer: {
-    hamBurger: HamburgerSlice,
+    hamBurger: hamBurgerSlice,
     searchCache: searchedCacheSlice,
-    cartItems: AddToCartSlice,
-    handleSearchEvent: handleSearchEventSlice,
-    // FavouriteItems:FavouriteSlice
+    cartBooks: cartSlice,
+    searchDetail: searchDetailSlice,
   },
 });

@@ -1,9 +1,15 @@
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-// import BorderColorIcon from '@mui/icons-material/BorderColor';
-const sideBar = () => {
+import React from "react";
+
+import { hamBurgerStateBurger } from "../redux/hamburgerSlice";
+
+const SideBar = () => {
+  const dispatch = useDispatch();
+
   return (
     <div className="sideBar">
-      <ul>
+      <ul onClick={() => dispatch(hamBurgerStateBurger(false))}>
         <Link to={"/"}>
           <div>
             {" "}
@@ -31,17 +37,8 @@ const sideBar = () => {
         {/* <div> <i className="bi bi-clipboard-check"></i> Orders </div>
             <div>  <i className="bi bi-book-half"></i> Biography </div> */}
       </ul>
-
-      {/* <ul>
-            <div> <i className="bi bi-house-door-fill"></i> Home</div>
-            <div> <i className="bi bi-bag"></i> Shopping</div>
-            <div> <i className="bi bi-clipboard-check"></i> Orders </div>
-            <div>  <i className="bi bi-book-half"></i> Biography </div>
-            <div> <i className="bi bi-award-fill"></i> Popular </div>
-            <div> <i className="bi bi-bookmark-plus"></i> Add Books</div>
-        </ul> */}
     </div>
   );
 };
 
-export default sideBar;
+export default SideBar;

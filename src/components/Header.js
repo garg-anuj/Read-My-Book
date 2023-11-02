@@ -1,19 +1,20 @@
-import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
-import { hamBurgerBtn } from "../Redux/HamburgerSlice";
-import useSearchSuggestions from "../customHooks/useSearchSuggestions.js";
-import { setSearchedValue } from "../Redux/handleSearchEventSlice ";
+import { hamBurgerStateBurger } from "../redux/hamburgerSlice";
+import { setSearchedValue } from "../redux/searchDetailSlice";
+
+import useSearchSuggestions from "../customHooks/useSearchSuggestions";
 
 const Header = () => {
-  const [searchedData, setInputText, inputText] = useSearchSuggestions();
-  const [isSuggestionVisible, setSuggestionVisible] = useState(false);
+  const [books, searchText, setSearchText] = useSearchSuggestions();
+  const [isSuggestionVisible, setSuggestionVisible] = useState(true);
   const dispatch = useDispatch();
   const cartCount = useSelector((state) => state?.cartItems?.cartList?.length);
 
   function handleEvent() {
-    dispatch(hamBurgerBtn());
+    dispatch(hamBurgerStateBurger());
   }
 
   return (
@@ -30,18 +31,16 @@ const Header = () => {
         </Link>
       </ul>
 
-      {/* <Search/> */}
       <ul
         onMouseOver={() => setSuggestionVisible(true)}
         onMouseLeave={() => setSuggestionVisible(false)}
-        // onBlur={()=>setSuggestionVisible(false)}
       >
         <input
           placeholder="Live Search Suggestion"
-          value={inputText}
+          value={searchText}
           onChange={(event) => {
             dispatch(setSearchedValue(event.target.value));
-            setInputText(event.target.value);
+            setSearchText(event.target.value);
           }}
           onFocus={() => setSuggestionVisible(true)}
         />
@@ -57,19 +56,19 @@ const Header = () => {
               : "suggestionBox suggestionBox_DeActive"
           }
         >
-          {searchedData?.map((sugg, i) => (
+          {books?.map((suggestion) => (
             <h1
               onClick={() => {
-                setInputText(sugg.title);
-                // navigate("/searchResult?v="+sugg)
+                setSearchText(suggestion.title);
+                // navigate("/searchResult?v="+suggestion)
               }}
-              key={sugg.id}
+              key={suggestion.id}
             >
-              {sugg.title}
+              {suggestion.title}
             </h1>
           ))}
 
-          {/* <Link to={"/searchResult?v="+sugg} key={`suggestion${i}`}> <h1  onClick={()=>setInputText(sugg)}>{sugg}</h1></Link>)} */}
+          {/* <Link to={"/searchResult?v="+suggestion} key={`suggestion${i}`}> <h1  onClick={()=>setInputText(suggestion)}>{suggestion}</h1></Link>)} */}
         </ul>
       </ul>
 
@@ -80,8 +79,6 @@ const Header = () => {
             <i className="bi bi-cart"></i>
           </Link>
         </li>
-        {/* <li><i className="bi bi-suit-heart-fill"></i></li> */}
-        {/* <li><i className="bi bi-person-circle"></i></li> */}
       </ul>
     </header>
   );

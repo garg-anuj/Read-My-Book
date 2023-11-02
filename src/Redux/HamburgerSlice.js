@@ -3,17 +3,16 @@ import { createSlice } from "@reduxjs/toolkit";
 export const hamBurgerSlice = createSlice({
   name: "hamBurger",
   initialState: {
-    toggleHam: true,
+    hamBurgerState: true,
   },
   reducers: {
-    hamBurgerBtn: (state) => {
-      state.toggleHam = state.toggleHam
-        ? (state.toggleHam = false)
-        : (state.toggleHam = true);
-      // console.log('sliceRedux',state.toggleHam)
+    hamBurgerStateBurger: (state) => {
+      state.hamBurgerState = state.hamBurgerState
+        ? (state.hamBurgerState = false)
+        : (state.hamBurgerState = true);
     },
   },
 });
 
-export const { hamBurgerBtn } = hamBurgerSlice.actions;
+export const { hamBurgerStateBurger } = hamBurgerSlice.actions;
 export default hamBurgerSlice.reducer;

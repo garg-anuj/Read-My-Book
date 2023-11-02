@@ -1,18 +1,17 @@
+import { useSelector } from "react-redux";
 import { useEffect } from "react";
-import { SEARCH_URL } from "../utils/constantFile";
-import { axiosFetchFunction } from "../utils/helper";
-import { useSelector } from "react-redux/es/hooks/useSelector";
+
+import { SEARCH_URL } from "../constants/urls";
+import { getMethod } from "../services";
 
 const useLiveSearchItems = (cb) => {
-  const getSearchedValue = useSelector(
-    (state) => state.handleSearchEvent.getValue
-  );
-  // const [count,setCount] = useState(0);
+  const searchValue = useSelector((state) => state.searchDetail.searchInput);
 
   useEffect(() => {
-    if (getSearchedValue !== "")
-      axiosFetchFunction(SEARCH_URL + getSearchedValue, (data) => cb(data));
-  }, [getSearchedValue, cb]);
+    if (searchValue !== "") {
+      getMethod(SEARCH_URL + searchValue).then((res) => cb(res));
+    }
+  }, [searchValue, cb]);
 };
 
 export default useLiveSearchItems;

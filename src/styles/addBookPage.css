@@ -13,7 +13,7 @@
     background-color: #101010;
 }
 
-.inputBox {
+.form-container {
     width: 100%;
 }
 
@@ -31,14 +31,14 @@ form {
     padding: 5px;
 }
 
-.inputBox input {
+.form-container input {
     border: 1px solid rgba(255, 255, 255, 0.2);
     height: 2rem;
     margin: 0.5rem 0;
     color: yellowgreen;
 }
 
-.inputBox input::placeholder {
+.form-container input::placeholder {
     padding: 10px;
 }
 
