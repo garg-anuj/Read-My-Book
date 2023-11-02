@@ -74,7 +74,7 @@ const Header = () => {
 
       <ul>
         <li>
-          <Link to={"/AddtoCart"}>
+          <Link to={"/addToCart"}>
             <span>{cartCount}</span>
             <i className="bi bi-cart"></i>
           </Link>

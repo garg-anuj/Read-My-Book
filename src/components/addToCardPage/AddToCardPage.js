@@ -19,10 +19,9 @@ const AddToCardPage = () => {
               ...card,
               actionTypes: () => dispatch(deleteBookFromCart({ title: title })),
             };
-            console.log(data);
 
             return (
-              <Link to={"/AddtoCart"} key={id}>
+              <Link to={"/addToCart"} key={id}>
                 <Card data={data} />
               </Link>
             );
