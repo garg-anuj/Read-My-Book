@@ -6,21 +6,15 @@ import { addBookToCart } from "../../redux/cartSlice";
 
 export default function BookCard({ book }) {
   const dispatch = useDispatch();
-  const data = {
-    title: book?.title,
-    author: book?.author,
-    bookId: book?.id,
-    link: book?.link,
-    actionTypes: () =>
-      dispatch(
-        addBookToCart({
-          ...book,
-        })
-      ),
-  };
+
   return (
     <Link to={"/addNewBooks"} state={book}>
-      <Card data={data} />
+      <Card
+        data={{
+          ...book,
+          actionTypes: () => dispatch(addBookToCart({ ...book })),
+        }}
+      />
     </Link>
   );
 }

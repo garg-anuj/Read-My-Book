@@ -6,6 +6,7 @@ import { POST_URL, PUT_URL } from "../../constants/urls";
 import { EMPTY_OBJECT } from "../../constants/general";
 
 import "../../styles/addBookPage.css";
+import "./style.css";
 
 const EMPTY_BOOK_INFO = {
   author: "",
@@ -21,30 +22,34 @@ const AddNewBooks = () => {
   const location = useLocation();
 
   useEffect(() => {
-    setNewBook(location?.state);
+    setNewBookInfo(location?.state);
   }, [location?.state]);
 
-  const [addNewBook, setNewBook] = useState(EMPTY_BOOK_INFO);
+  const [newBookInfo, setNewBookInfo] = useState(EMPTY_BOOK_INFO);
   const [placeholderValue, setPlaceHolderValue] = useState(EMPTY_BOOK_INFO);
 
-  function handleInputEvent(event) {
+  function handleInputChange(event) {
+    event.preventDefault();
     const { target } = event || EMPTY_OBJECT;
     const { name, value } = target || EMPTY_OBJECT;
     setPlaceHolderValue(event.target.placeholder);
-    console.log(placeholderValue);
-    setNewBook({ ...addNewBook, [name]: value });
+    setNewBookInfo({ ...newBookInfo, [name]: value });
   }
 
-  function handleCreateBook() {
-    postMethod(POST_URL, addNewBook);
-    setNewBook(EMPTY_BOOK_INFO);
+  function createNewBook(event) {
+    event.preventDefault();
+    postMethod(POST_URL, newBookInfo);
+    setNewBookInfo(EMPTY_BOOK_INFO);
   }
 
-  function handleEditBook() {
+  function updateExistingBook(event) {
+    event.preventDefault();
     let bookId = location?.state?.id;
-    putMethod(PUT_URL + bookId, addNewBook);
-    setNewBook(EMPTY_BOOK_INFO);
+    putMethod(PUT_URL + bookId, newBookInfo);
+    setNewBookInfo(EMPTY_BOOK_INFO);
   }
+  const { author, title, language, country, link, pages, year } =
+    newBookInfo || EMPTY_OBJECT;
 
   return (
     <div className="form-container">
@@ -52,90 +57,78 @@ const AddNewBooks = () => {
         <label htmlFor="author">{placeholderValue.author}</label>
         <input
           type="text"
-          value={addNewBook?.author}
+          value={author}
           id="author"
           name="author"
           placeholder="author"
-          onChange={handleInputEvent}
+          onChange={handleInputChange}
           size={10}
         />
         <label htmlFor="country">Country</label>
         <input
           type="text"
-          value={addNewBook?.country}
+          value={country}
           name="country"
           placeholder="country"
-          onChange={handleInputEvent}
+          onChange={handleInputChange}
           size={20}
         />
         <label htmlFor="language">language</label>
         <input
           type="text"
-          value={addNewBook?.language}
+          value={language}
           id="language"
           name="language"
           placeholder="language"
-          onChange={handleInputEvent}
+          onChange={handleInputChange}
           size={20}
         />
         <label htmlFor="link">Link</label>
         <input
           type="url"
-          value={addNewBook?.link}
+          value={link}
           id="link"
           name="link"
           placeholder="link"
-          onChange={handleInputEvent}
+          onChange={handleInputChange}
           size={20}
         />
         <label htmlFor="pages">Pages</label>
         <input
           type="number"
-          value={addNewBook?.pages}
+          value={pages}
           id="pages"
           name="pages"
           placeholder="pages"
-          onChange={handleInputEvent}
+          onChange={handleInputChange}
           size={10}
         />
         <label htmlFor="title">title</label>
         <input
           type="text"
-          value={addNewBook?.title}
+          value={title}
           id="title"
           name="title"
           placeholder="title"
-          onChange={handleInputEvent}
+          onChange={handleInputChange}
           size={20}
         />
         <label htmlFor="year">year</label>
         <input
           type="number"
-          value={addNewBook?.year}
+          value={year}
           id="year"
           name="year"
           placeholder="year"
-          onChange={handleInputEvent}
+          onChange={handleInputChange}
           size={4}
         />
         {location.state == null ? (
-          <button
-            className="form-btn"
-            onClick={(event) => {
-              event.preventDefault();
-              handleCreateBook();
-            }}
-          >
+          <button className="form-btn" onClick={createNewBook}>
             Add New BooK
           </button>
         ) : (
-          <button
-            className="form-btn"
-            onClick={(event) => {
-              event.preventDefault();
-              handleEditBook();
-            }}
-          >
+          <button className="form-btn" onClick={updateExistingBook}>
             Edit BooK
           </button>
         )}

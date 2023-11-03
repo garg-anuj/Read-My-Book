@@ -19,12 +19,11 @@ import "./table.css";
 
 const TabularPage = () => {
   useEffect(() => {
-    getMethod(API_URL).then((res) => setBookData(res));
+    fetchData(API_URL);
   }, []);
 
   const [bookData, setBookData] = useState();
   const [gotInput, setInput] = useState("");
-  // const getLiveSearchedData =
   useLiveSearchItems(setBookData);
 
   function fetchData(URL) {
@@ -36,7 +35,7 @@ const TabularPage = () => {
     fetchData(SEARCH_URL + gotInput);
   }
 
-  function paginationButton(pageNo) {
+  function setCurrentPageIndex(pageNo) {
     fetchData(PAGINATION_URL + pageNo);
   }
 
@@ -101,7 +100,7 @@ const TabularPage = () => {
           paginationData={Array.from({
             length: bookData?.pagination?.totalPages,
           })}
-          paginationButton={paginationButton}
+          setCurrentPageIndex={setCurrentPageIndex}
         />
 
         {/* <div style={paginationBtnContainerStyle}>

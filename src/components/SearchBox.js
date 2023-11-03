@@ -1,11 +1,7 @@
 import React from "react";
 import { btnStyle } from "../constants/styles";
-// import { useDispatch } from "react-redux";
-// import { setSearchedValue } from '../Redux/handleSearchEventSlice ';
-// import {}
 
 const SearchBox = ({ filtration }) => {
-  // const dispatch = useDispatch();
   // function handleInputEvent(e){
   //   dispatch(setSearchedValue(e.target.value))
   // }

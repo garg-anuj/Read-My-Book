@@ -2,14 +2,14 @@ import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import React from "react";
 
-import { hamBurgerStateBurger } from "../redux/hamburgerSlice";
+import { hamBurgerState } from "../redux/hamburgerSlice";
 
 const SideBar = () => {
   const dispatch = useDispatch();
 
   return (
     <div className="sideBar">
-      <ul onClick={() => dispatch(hamBurgerStateBurger(false))}>
+      <ul onClick={() => dispatch(hamBurgerState(false))}>
         <Link to={"/"}>
           <div>
             {" "}
@@ -34,8 +34,6 @@ const SideBar = () => {
             <i className="bi bi-bag"></i> Shoped Cart
           </div>
         </Link>
-        {/* <div> <i className="bi bi-clipboard-check"></i> Orders </div>
-            <div>  <i className="bi bi-book-half"></i> Biography </div> */}
       </ul>
     </div>
   );

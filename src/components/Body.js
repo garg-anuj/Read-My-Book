@@ -3,16 +3,12 @@ import { useSelector } from "react-redux";
 import SideBar from "./SideBar.js";
 
 const Body = ({ children }) => {
-  const hamBurger = useSelector((state) => state.hamBurger);
+  const hamBurger = useSelector((state) => state?.hamBurger?.hamBurgerState);
 
   return (
     <div className="body">
-      {hamBurger.hamBurgerState ? <SideBar /> : null}
-
-      {/* <Outlet/> */}
-      {/* SearchPage   */}
+      {hamBurger ? <SideBar /> : null}
       {children}
-      {/* <AddNewBooks/> */}
     </div>
   );
 };

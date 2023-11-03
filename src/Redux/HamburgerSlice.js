@@ -6,7 +6,7 @@ export const hamBurgerSlice = createSlice({
     hamBurgerState: true,
   },
   reducers: {
-    hamBurgerStateBurger: (state) => {
+    hamBurgerState: (state) => {
       state.hamBurgerState = state.hamBurgerState
         ? (state.hamBurgerState = false)
         : (state.hamBurgerState = true);
@@ -14,5 +14,5 @@ export const hamBurgerSlice = createSlice({
   },
 });
 
-export const { hamBurgerStateBurger } = hamBurgerSlice.actions;
+export const { hamBurgerState } = hamBurgerSlice.actions;
 export default hamBurgerSlice.reducer;

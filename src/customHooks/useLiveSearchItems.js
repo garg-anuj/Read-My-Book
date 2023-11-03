@@ -5,7 +5,7 @@ import { SEARCH_URL } from "../constants/urls";
 import { getMethod } from "../services";
 
 const useLiveSearchItems = (cb) => {
-  const searchValue = useSelector((state) => state.searchDetail.searchInput);
+  const searchValue = useSelector((state) => state?.searchTerm?.searchTerm);
 
   useEffect(() => {
     if (searchValue !== "") {

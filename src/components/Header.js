@@ -2,19 +2,19 @@ import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 
-import { hamBurgerStateBurger } from "../redux/hamburgerSlice";
-import { setSearchedValue } from "../redux/searchDetailSlice";
+import { hamBurgerState } from "../redux/hamburgerSlice";
+import { setSearchedTerm } from "../redux/searchTermSlice";
 
 import useSearchSuggestions from "../customHooks/useSearchSuggestions";
 
 const Header = () => {
-  const [books, searchText, setSearchText] = useSearchSuggestions();
+  const [books, searchTerm] = useSearchSuggestions();
   const [isSuggestionVisible, setSuggestionVisible] = useState(true);
   const dispatch = useDispatch();
   const cartCount = useSelector((state) => state?.cartBooks?.cartBooks?.length);
 
   function handleEvent() {
-    dispatch(hamBurgerStateBurger());
+    dispatch(hamBurgerState());
   }
 
   return (
@@ -37,10 +37,9 @@ const Header = () => {
       >
         <input
           placeholder="Live Search Suggestion"
-          value={searchText}
+          value={searchTerm}
           onChange={(event) => {
-            dispatch(setSearchedValue(event.target.value));
-            setSearchText(event.target.value);
+            dispatch(setSearchedTerm(event.target.value));
           }}
           onFocus={() => setSuggestionVisible(true)}
         />
@@ -53,19 +52,20 @@ const Header = () => {
           className={
             isSuggestionVisible
               ? "suggestionBox"
-              : "suggestionBox suggestionBox_DeActive"
+              : "suggestionBox suggestionBox-hidden"
           }
         >
           {books?.map((suggestion) => (
-            <h1
+            <li
+              className="suggestionBox-list"
               onClick={() => {
-                setSearchText(suggestion.title);
+                setSearchedTerm(suggestion.title);
                 // navigate("/searchResult?v="+suggestion)
               }}
               key={suggestion.id}
             >
               {suggestion.title}
-            </h1>
+            </li>
           ))}
 
           {/* <Link to={"/searchResult?v="+suggestion} key={`suggestion${i}`}> <h1  onClick={()=>setInputText(suggestion)}>{suggestion}</h1></Link>)} */}

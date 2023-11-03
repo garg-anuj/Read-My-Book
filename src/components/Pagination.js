@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Pagination({ paginationData, paginationButton }) {
+export default function Pagination({ paginationData, setCurrentPageIndex }) {
   return (
     <div className="btn-container">
       {paginationData?.map((ele, index) => {
@@ -8,7 +8,7 @@ export default function Pagination({ paginationData, paginationButton }) {
           <div
             key={`btn${index}`}
             onClick={() => {
-              paginationButton(index + 1);
+              setCurrentPageIndex(index + 1);
             }}
           >
             {index + 1}

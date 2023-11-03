@@ -6,22 +6,22 @@ import { getMethod } from "../services.js";
 import { SEARCH_URL } from "../constants/urls";
 
 const useSearchSuggestions = () => {
-  const [searchText, setSearchText] = useState("");
-  const [books, setBooks] = useState([]);
-  const booksByName = useSelector((state) => state.searchCache);
   const dispatch = useDispatch();
+
+  const [books, setBooks] = useState([]);
+
+  const booksByName = useSelector((state) => state?.searchCache);
+  const searchTerm = useSelector((state) => state?.searchTerm?.searchTerm);
 
   useEffect(() => {
     // Added debounce concepts
     const apiAction = setTimeout(() => {
-      if (booksByName[searchText]) {
-        console.log("Api not called Data From Redux");
-        setBooks(booksByName[searchText]);
+      if (booksByName[searchTerm]) {
+        setBooks(booksByName[searchTerm]);
       } else {
-        console.log("Api Data called");
-        getMethod(SEARCH_URL + searchText, (apiData) => {
+        getMethod(SEARCH_URL + searchTerm).then((apiData) => {
           setBooks(apiData?.data);
-          dispatch(addSearchedKeyResult({ [searchText]: apiData?.data }));
+          dispatch(addSearchedKeyResult({ [searchTerm]: apiData?.data }));
         });
       }
     }, 300);
@@ -29,9 +29,9 @@ const useSearchSuggestions = () => {
     return () => {
       clearTimeout(apiAction);
     };
-  }, [searchText, booksByName, dispatch]);
+  }, [searchTerm, booksByName, dispatch]);
 
-  return [books, searchText, setSearchText];
+  return [books, searchTerm];
 };
 
 export default useSearchSuggestions;

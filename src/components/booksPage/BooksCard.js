@@ -15,20 +15,21 @@ const BooksCard = () => {
   useLiveSearchItems(setDisplayBooks);
 
   function fetchData(url) {
-    getMethod(url).then(setDisplayBooks);
+    getMethod(url).then((apiData) => setDisplayBooks(apiData));
   }
 
   useEffect(() => {
     fetchData(API_URL);
   }, []);
 
-  function paginationButton(pageNo) {
+  function setCurrentPageIndex(pageNo) {
     fetchData(PAGINATION_URL + pageNo);
   }
 
-  const filtration = useCallback((filterType) => {
-    fetchData(FILTRATION_URL + filterType);
-  }, []);
+  const filtration = useCallback(
+    (filterType) => fetchData(FILTRATION_URL + filterType),
+    []
+  );
 
   return (
     <div className="video-container">
@@ -36,7 +37,7 @@ const BooksCard = () => {
         paginationData={Array.from({
           length: displayBooks?.pagination?.totalPages,
         })}
-        paginationButton={paginationButton}
+        setCurrentPageIndex={setCurrentPageIndex}
       />
 
       <SearchBox filtration={filtration} />
