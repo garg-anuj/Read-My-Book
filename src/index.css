@@ -125,8 +125,8 @@ button {
   max-width: 490px;
   padding: 1.1rem;
   overflow-y: scroll;
-  z-index: 9999 !important;
-  max-height: 450px;
+  z-index: 9 !important;
+  max-height: 45vh;
   border-radius: 0 0 25px 25px;
 }
 
@@ -206,7 +206,7 @@ button {
   margin: 0 1rem 0 0;
 }
 
-.video-container {
+.book-container {
   margin: 5px;
   width: 100%;
   /* padding: 10px 25px 0 25px; */
@@ -425,7 +425,7 @@ button {
     height: 90vh;
   }
 
-  .video-container {
+  .book-container {
     margin: 5px;
     width: 100%;
     padding: 0;

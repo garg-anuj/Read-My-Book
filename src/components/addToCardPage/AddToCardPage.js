@@ -10,7 +10,7 @@ const AddToCardPage = () => {
   const dispatch = useDispatch();
   return (
     <>
-      <div className="video-container">
+      <div className="book-container">
         <h1>Favorite Books</h1>
         <div className="card-container">
           {cartItemData?.map((card) => {

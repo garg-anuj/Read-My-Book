@@ -32,7 +32,7 @@ const BooksCard = () => {
   );
 
   return (
-    <div className="video-container">
+    <div className="book-container">
       <Pagination
         paginationData={Array.from({
           length: displayBooks?.pagination?.totalPages,
